@@ -11,6 +11,7 @@ fun huffman(probabilities: Map<Char, Double>): Map<Char, String> {
         priorityQueue.offer(node)
     }
 
+
     while (priorityQueue.size > 1) {
         val node1 = priorityQueue.poll()
         val node2 = priorityQueue.poll()
