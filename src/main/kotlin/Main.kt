@@ -13,8 +13,18 @@ fun huffman(probabilities: Map<Char, Double>): Map<Char, String> {
 
 
     while (priorityQueue.size > 1) {
-        val node1 = priorityQueue.poll()
-        val node2 = priorityQueue.poll()
+        var node1 = priorityQueue.poll()
+        var node2 = priorityQueue.poll()
+
+        if (node1.left == null && node1.right == null &&
+            node2.left == null && node2.right == null &&
+            node1.probability < node2.probability
+        ) {
+            val temp = node1
+            node1 = node2
+            node2 = temp
+        }
+
         val parent = Node('\u0000', node1.probability + node2.probability, node1, node2)
         priorityQueue.offer(parent)
     }
