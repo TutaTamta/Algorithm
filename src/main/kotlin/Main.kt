@@ -49,13 +49,12 @@ fun shannonFanoHelper(sortedProbabilities: List<Pair<Char, Double>>, start: Int,
         return
     }
 
-    var i = start
+    var i = start - 1
     var j = end
     var sum1 = sortedProbabilities[start].second
     var sum2 = sortedProbabilities[end].second
     while (i < j) {
-
-        if (sum1 < sum2) {
+        if (sum1 <= sum2) {
             sum1 += sortedProbabilities[++i].second
         } else {
             sum2 += sortedProbabilities[--j].second
